@@ -1,4 +1,4 @@
-#include <linux/kernel.h>
+﻿#include <linux/kernel.h>
 #include <linux/module.h> 
 #include <linux/init.h> 
 #include <linux/fs.h>
@@ -10,7 +10,7 @@
 #define SUCCESS 0
 #define EBUSY 16
 #define DEVICE_NAME "test"
-#define AUTHOR "Taldykin & Savik"
+#define AUTHOR "K&K&B"
 #define LICENSE "GPL"
 #define DESCRIPTION "Test module"
 
@@ -79,7 +79,7 @@ static int __init test_init (void)
     //register_chrdev — Register a major number for character devices.
     major_number = register_chrdev(0, DEVICE_NAME, &fops);
 
-    if (major_number < 0) {
+    //if (major_number < 0) {
         printk("Registering the character device failed with %d\n", major_number);
         return major_number;
     }
