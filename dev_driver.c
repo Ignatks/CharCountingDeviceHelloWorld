@@ -24,8 +24,7 @@ MODULE_SUPPORTED_DEVICE(DEVICE_NAME);
 static int device_open(struct inode *, struct file*);
 static int device_release(struct inode *, struct file*);
 static ssize_t device_read(struct file *, char *, size_t, loff_t*);
-static ssize_t device_write(struct file *filp, char *buf,
-                      size_t count, loff_t *f_pos);
+static ssize_t device_write(struct file *filp, char *buf, size_t count, loff_t *f_pos);
 // global variables
 static int major_number;
 static int is_device_open = 0;
@@ -120,20 +119,14 @@ static int device_release(struct inode *inode, struct file *file)
 }
 
 /*Called when a process writes to dev file: echo "hello" > /dev/test*/
-static ssize_t device_write(struct file *filp,
-	 char *buffer,    /*The buffer to fill with data*/
-	 size_t length,   /*The length of the buffer*/
-	 loff_t *offset)  /*Our offset in the file*/
+static ssize_t device_write(struct file *filp, char *buffer, size_t length, loff_t *offset)
 {
     sscanf(buffer, "%d", &tick);
     printk("wrote: %d\n", tick);
     return sizeof(tick);
 }
 
-static ssize_t device_read(struct file *filp,
-	   char *buffer,    /*The buffer to fill with data*/
-	   size_t length,   /*The length of the buffer*/
-	   loff_t *offset)  /*Our offset in the file*/
+static ssize_t device_read(struct file *filp, char *buffer, size_t length, loff_t *offset)
 {
     return 1;
 }
