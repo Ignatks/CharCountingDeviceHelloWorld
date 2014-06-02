@@ -10,7 +10,7 @@
 #define SUCCESS 0
 #define EBUSY 16
 #define DEVICE_NAME "test"
-#define AUTHOR "Taldykin & Savik"
+#define AUTHOR "K & K & B"
 #define LICENSE "GPL"
 #define DESCRIPTION "Test module"
 
